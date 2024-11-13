@@ -1,16 +1,13 @@
 LIST = [2,9,39,5,61,18];
-function calculateMedian3 (medianArg_v3){
-    const SORTED_ARGUMENT = medianArg_v3.sort((a,b) => a-b);
-    const MIDDLE_INDEX = SORTED_ARGUMENT.length/2;
-    if (SORTED_ARGUMENT.length%2 == 1){
-        let middleIndexOfOdd = Math.trunc(MIDDLE_INDEX);
-        let medianOfList = SORTED_ARGUMENT.splice(middleIndexOfOdd,1)[0];
-        return medianOfList;
-    }
-    else{
-        let y = MIDDLE_INDEX - 1;
-        let x = (SORTED_ARGUMENT[MIDDLE_INDEX]+SORTED_ARGUMENT[y])/2;
-        return x;
+function calculateMedian2(medianArg_V2) {
+    // Sort the array
+    let sortedArgument = medianArg_V2.sort((a, b) => a - b);
+    let midIndex = Math.trunc(sortedArgument.length / 2);
+    // Check if the array has an odd or even number of elements
+    if (sortedArgument.length % 2 === 1) {
+        return sortedArgument[midIndex];
+    } else {
+        return (sortedArgument[midIndex - 1] + sortedArgument[midIndex]) / 2; //toye [] mittonam calc anjam bedam!
     }
 }
 console.log(calculateMedian3(LIST));
