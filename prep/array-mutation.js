@@ -54,7 +54,7 @@ console.log(lettersInAnArray.length);
 console.assert(lettersInAnArray.length === 4);
 console.assert(lettersInAnArray[3] === "s"); 
 
-/*function pluralise_V2(str) {
+function pluralise_V2(str) {
     return str += "s";
 }
 const string = "dog";
@@ -64,4 +64,4 @@ pluralise_V2(string);
 console.log(pluralise_V2(string));
 console.log(length);
 console.assert(string.length === 4 );
-console.assert(string === "dogs"); */
+console.assert(string === "dogs"); 
