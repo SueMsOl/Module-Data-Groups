@@ -6,7 +6,7 @@ function parseQueryString2(argument){
     }
     //converting string to array using &
     const STRING_TO_ARRAY = argument.split("&");
-    //using reduce to convert each item inside [ [ 'sky'= 'blue' ], [ 'people'= 'happy' ], [ 'pockets'= 'full' ] ] to an object
+    //using reduce to convert each item inside [ 'sky=blue', 'people=happy', 'pockets=full' ] to an object
     const A = STRING_TO_ARRAY.reduce((object,item)=>{
         const [a,b] = item.split("=");
         object[a] = b;
@@ -28,7 +28,7 @@ function parseQueryString3(argument){
     const STRING_TO_ARRAY = argument.split("&");
     // 'return STRING_TO_ARRAY.map(item => item.split("="))' outputs : [ [ 'sky', 'blue' ], [ 'people', 'happy' ], [ 'pockets', 'full' ] ]
     const ARRAY_FINAL = STRING_TO_ARRAY.map(item => item.split("="));
-    // this method converts array above to an object :) 
+    // Object.fromEntries takes the nested array and interprets each small array as a key-value pair:
     return Object.fromEntries(ARRAY_FINAL);
 
 }
