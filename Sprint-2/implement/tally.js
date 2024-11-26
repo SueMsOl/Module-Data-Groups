@@ -18,5 +18,4 @@ function tally(arg) {
     }
     return object;
 }
-console.log(tally(test));
 module.exports = tally;
