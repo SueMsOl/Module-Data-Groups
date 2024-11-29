@@ -1,29 +1,27 @@
-let a = {x : 10, y : 20}; //to {"10": "x", "20": "y"}
-
-let b = Object.entries(a);
-console.log(b);
-console.log(typeof(a));
-console.log(typeof(b));
-function invertObject(argument){
-    let x = Object.entries(argument)
-    return x.reduce((a,b)=>{
-        a[b[1]] = b[0];
-        return a;
-    } ,{})
+let a = [1,3,"2",3,3,3,3,1,1,null];
+function modeCalc(argument){
+    let frequency = 0;
+    let filtered = argument.filter(item => typeof item === "number");
+    let sorted = filtered.toSorted((a,b)=> b-a);
+    let frequents = sorted.reduce((a,b)=>{
+        if(a[b]){
+            frequency++;
+            a[b]=frequency;
+            return a;
+        }
+        else{
+            frequency = 1;
+            a[b]=frequency;
+            return a;
+        }
+    },{});
+    let frequentsToArray = Object.entries(frequents);
+    let max = frequentsToArray[0];
+    for (const item of frequentsToArray){
+        if (item[1] > max[1]){
+            max = item[0];
+        }
+    }
+    return  max;
 }
-console.log(invertObject(a));
-
-//map version
-let m = {x : 10, y : 20};
-function invertObject2(argument){
-    let x = [argument];
-    let newX = [];
-     return x.map(item =>{
-       let test = item.x; //10
-       let test2 = item.y; //20
-       return newX.push(test,test2);
-    })
-}
-
-
-console.log(invertObject2(m));
+console.log(modeCalc(a));

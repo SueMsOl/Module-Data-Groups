@@ -6,7 +6,7 @@ function tally(arg) {
     if (arg.length === 0){
         return object;
     }
-    for(let i = 0; i < test.length; i++){
+    for(let i = 0; i < arg.length; i++){
         if(object[arg[i]]){
             frequency++;
             object[arg[1]]=frequency;
