@@ -1,27 +1,11 @@
-let a = [1,3,"2",3,3,3,3,1,1,null];
-function modeCalc(argument){
-    let frequency = 0;
-    let filtered = argument.filter(item => typeof item === "number");
-    let sorted = filtered.toSorted((a,b)=> b-a);
-    let frequents = sorted.reduce((a,b)=>{
-        if(a[b]){
-            frequency++;
-            a[b]=frequency;
-            return a;
-        }
-        else{
-            frequency = 1;
-            a[b]=frequency;
-            return a;
-        }
-    },{});
-    let frequentsToArray = Object.entries(frequents);
-    let max = frequentsToArray[0];
-    for (const item of frequentsToArray){
-        if (item[1] > max[1]){
-            max = item[0];
-        }
-    }
-    return  max;
+let a = "you And me and You    !."
+const newObject = (argument) => {
+    let cleansed = argument.replace(/[^a-zA-Z0-9\s]/g, "").toLowerCase();
+    let arrayed = cleansed.split(" ").filter(word => word.trim() !== "");;
+    let ordered = arrayed.toSorted((a,b)=> a-b);
+    return ordered.reduce((a,b)=>{
+        a[b] = (a[b] || 0)+1;
+        return a;
+    },{})
 }
-console.log(modeCalc(a));
+console.log(newObject(a));
